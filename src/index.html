@@ -203,6 +203,21 @@
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
+
+        @media not all and (min-resolution:.001dpcm) {
+            @supports (-webkit-appearance:none) {
+
+                html,
+                body {
+                    scroll-snap-type: none;
+
+                }
+
+                section {
+                    background-attachment: unset;
+                }
+            }
+        }
     </style>
 </body>
 
