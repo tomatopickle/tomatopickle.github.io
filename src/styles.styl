@@ -1,0 +1,239 @@
+@import './external.styl';
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+.dark {
+    body {
+        color: white;
+    }
+
+    #landing_parent {
+        background-image: url('./assets/bg_dark.svg');
+    }
+
+    #about {
+        background-image: url('./assets/about_bg_dark.svg');
+    }
+
+    #projects {
+        background-image: url('./assets/about_bg_dark.svg');
+    }
+
+    #contact {
+        background-image: url('./assets/contact_bg_dark.svg');
+    }
+}
+
+.flex {
+    display: flex;
+
+    .spacer {
+        flex-grow: 1;
+    }
+}
+
+#wrapper {
+    section {
+        scroll-snap-align: center;
+    }
+}
+
+#scroll_up_button {
+    transform: scale(0);
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+
+    &.open {
+        transform: scale(1);
+
+        &:active {
+            transform: scale(0.90);
+        }
+    }
+}
+
+#navbar {
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: max-content;
+    z-index: 15;
+
+    #links {
+        a {
+            margin-inline: 5px;
+            opacity: 0.75;
+            font-size: 18px;
+            transition: opacity 0.2s;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:active {
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-attachment: fixed;
+}
+
+#landing_parent {
+    #scroll_down_btn {
+        position: absolute;
+        bottom: 90px;
+        left: 50%;
+        margin-left: -100px;
+    }
+
+    #astronaut {
+        position: absolute;
+        top: 15px;
+        right: 5px;
+        transform: scale(0.8);
+        animation: move-astronaut 50s infinite linear both alternate;
+    }
+
+    .galaxy {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        height: 55vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    #landing {
+        position: absolute;
+        width: 75vw;
+        left: 50%;
+        top: 15%;
+        transform: translate(-50%);
+
+        #heading {
+            font-size: 25px;
+
+            h1 {
+                font-size: 50px;
+            }
+        }
+
+        #social_panel {
+            width: 30%;
+            padding-block: 15px;
+        }
+    }
+}
+
+#about {
+    h1 {
+        font-size: 50px;
+        padding: 50px;
+    }
+
+    img {
+        height: 30px;
+    }
+
+    .card {
+        font-size: 20px;
+    }
+
+    #lang_bar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .lang {
+            background-color: var(--bgColor);
+            height: 25px;
+
+            &:nth-child(2) {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+
+            &:last-child {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+        }
+    }
+
+    .lang_name {
+        padding-left: 2.25vw;
+    }
+}
+
+#projects {
+    h1 {
+        font-size: 50px;
+        padding: 50px;
+    }
+
+    #pinned_repos {
+        grid-template-columns: repeat(3, 30vw);
+        grid-auto-rows: minmax(100px, auto);
+        gap: 10px;
+        display: grid;
+        max-width: 100%;
+        width: max-content;
+        margin: auto;
+
+        .pinned_repo {
+            width: 100%;
+            height: 100%;
+        }
+
+        .language_badge {
+            background-color: var(--color);
+            position: absolute;
+            top: 32px;
+            right: 18px;
+            padding-inline: 10px;
+        }
+    }
+}
+
+#contact {
+    h1 {
+        font-size: 50px;
+        padding: 50px;
+    }
+}
+
+// https://codepen.io/tamueka/pen/EGwZPb
+@keyframes move-astronaut {
+    100% {
+        transform: translate(-160px, 160px) rotate(90deg);
+    }
+}
+
+.center {
+    margin: auto;
+}
