@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "alpinejs": "^3.10.2",
+    "shx": "^0.3.2",
     "daisyui": "^2.15.1",
     "typed.js": "^2.0.12"
   }
