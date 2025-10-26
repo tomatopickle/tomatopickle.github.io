@@ -29,7 +29,7 @@ var generateStars = function () {
 
 };
 async function getPinnedRepos() {
-    let response = await fetch("https://gh-pinned-repos.egoist.sh/?username=tomatopickle");
+    let response = await fetch("https://gh-pinned-repos-tsj7ta5xfhep.deno.dev/?username=tomatopickle");
     if (response.ok) {
         let json = await response.json();
         Alpine.store('pinnedRepos', json);
