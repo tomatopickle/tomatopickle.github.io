@@ -45,7 +45,7 @@ async function getMostUsedLanguages() {
     let percentages = [];
     if (response.ok) {
         let json = await response.json();
-        for (index in json) {
+        for (var index in json) {
             const repo = json[index];
             if (repo.language != null) {
                 if (!languages[repo.language]) {
@@ -55,8 +55,8 @@ async function getMostUsedLanguages() {
                 repoNo++;
             }
         }
-        for (i in languages) {
-            for (color in languageColors) {
+        for (var i in languages) {
+            for (var color in languageColors) {
                 if (color.toLowerCase() == i.toLowerCase()) {
                     percentages.push({ name: i, percentage: Math.round((languages[i] / repoNo) * 100), color: languageColors[color].color })
                 }
